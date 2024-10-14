@@ -1,5 +1,5 @@
 import random
-import user_functions
+
 
 count_deuce = 0
 count_wins = 0
@@ -26,5 +26,30 @@ def user_rock():
    if choice_PC == "Rock":
       count_deuce += 1
 
-if choice_User == "Rock":
-   user_rock()
+def user_paper():
+   if choice_PC == "Paper":
+      count_deuce += 1
+   elif choice_PC == "Scissors":
+      count_loses += 1
+   if choice_PC == "Rock":
+      count_wins += 1
+
+def user_scissors():
+   if choice_PC == "Paper":
+      count_wins += 1
+   elif choice_PC == "Scissors":
+      count_deuce += 1
+   if choice_PC == "Rock":
+      count_loses += 1
+
+while count_wins < 3 or count_loses < 3:
+   if choice_User == "Rock":
+      user_rock()
+   elif choice_User == "Paper":
+      user_paper()
+   elif choice_User == "Scissors":
+      user_scissors()
+   else:
+      print("Do you know to play this game? ")
+   
+   print(f"W{count_wins}, D{count_deuce}, L{count_loses}")
