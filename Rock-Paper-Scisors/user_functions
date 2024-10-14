@@ -1,0 +1,9 @@
+import main
+
+def user_rock():
+   if choice_PC == "Paper":
+      count_loses += 1
+   elif choice_PC == "Scisors":
+      count_wins += 1
+   if choice_PC == "Rock":
+      count_deuce += 1
