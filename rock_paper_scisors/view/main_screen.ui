@@ -180,14 +180,27 @@
    <widget class="QLabel" name="feedback_label">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>440</y>
+      <x>360</x>
+      <y>470</y>
       <width>66</width>
       <height>17</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string> </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>430</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Computer:</string>
     </property>
    </widget>
   </widget>

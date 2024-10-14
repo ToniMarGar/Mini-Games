@@ -32,6 +32,9 @@ class Main_screen(QMainWindow):
         self.count_win_label.setText(str(actual_stats[0]))
         self.count_deuce_label.setText(str(actual_stats[1]))
         self.count_loses_label.setText(str(actual_stats[2]))
+
+        self.total_win_label.setText(str(Game.total_win))
+        self.total_lose_label.setText(str(Game.total_lose))
     
     def continue_playing(self):
         result=self.game.compare_finish_game()
@@ -44,7 +47,6 @@ class Main_screen(QMainWindow):
     def finish_game(self):
         self.game=Game()
 
-    
 def main():
     app = QApplication(sys.argv)
     window = Main_screen()
