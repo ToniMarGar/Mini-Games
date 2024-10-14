@@ -27,21 +27,21 @@
      <item>
       <widget class="QPushButton" name="piedra_button">
        <property name="text">
-        <string>PushButton</string>
+        <string>Piedra</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="papel_button">
        <property name="text">
-        <string>PushButton</string>
+        <string>Papel</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="tijera_button">
        <property name="text">
-        <string>PushButton</string>
+        <string>TIjera</string>
        </property>
       </widget>
      </item>
@@ -175,6 +175,19 @@
     </property>
     <property name="text">
      <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="feedback_label">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>440</y>
+      <width>66</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
     </property>
    </widget>
   </widget>
