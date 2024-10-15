@@ -7,17 +7,20 @@ from memory.model import Carta
 class Tablero:
 
     carta_list=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
+    
 
     def __init__(self,board_size):
         self.board_size = board_size
+        
         self.board=[]
         match board_size:
             case 2:
-                self.types_list=Tablero.carta_list[0:2]
+                self.num_parejas=2
             case 4:
-                self.types_list=Tablero.carta_list[0:8]
+                self.num_parejas=8
             case 6:
-                self.types_list=Tablero.carta_list[0:18]
+                self.num_parejas=18
+        self.types_list=Tablero.carta_list[0:self.num_parejas]
         self.types_list+=self.types_list
         self.create_board()
 
