@@ -8,6 +8,7 @@ from PyQt6.uic import loadUi
 from memory.model.Tablero import Tablero
 from memory.model.Carta import Carta
 from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QLabel, QPushButton
+import time
 
 class Game_screen(QMainWindow):
 
@@ -30,8 +31,9 @@ class Game_screen(QMainWindow):
                 self.grid_botones.addWidget(button,fila,columna)
         
     def funcion_boton(self,carta,button):
+
+        button.setText(str(carta))
         
-        print(carta)
         if len(self.pair)<1:
             self.pair.append(carta)
             self.pair_buttons.append(button)
@@ -41,9 +43,12 @@ class Game_screen(QMainWindow):
                 self.pair_buttons.append(button)
                 if self.pair[0]==self.pair[1]:
                     print("Pareja")
-                    list(button_x.hide() for button_x in self.pair_buttons)
+                    list(button_x.hide() for button_x in self.pair_buttons)                   
                 else:
                     print("Try again")
+                    #time.sleep(1)
+                    list(button_y.setText("Voltear") for button_y in self.pair_buttons)
+                    
                 
                 self.pair=[]
                 self.pair_buttons=[]
