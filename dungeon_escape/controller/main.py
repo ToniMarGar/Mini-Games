@@ -1,7 +1,23 @@
-
+import random
 
 def main():
     print("Empieza la partida")
+    create_player()
+
+    def create_player():
+        
+        print("1 - Humano, 2 - Enano, 3 - Elfo")
+        option = input("Con que especie quieres jugar? ")
+        match option:
+            case 1:
+                player = Character(1)    
+            case 2:
+                player = Character(2)        
+            case 3:
+                player = Character(3)  
+
+        name = input("Dale nombre a tu personaje")
+
     # crear personaje alomejor si da tiempo y si nos apetece y si se alinean los astros.
     # empieza partida
     # inventario a 0, vida a 100
