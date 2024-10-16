@@ -1,15 +1,12 @@
 import random
 import sys
 import os
-
 from Game_screen import Game_screen
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 from PyQt6 import uic
 from PyQt6.QtWidgets import QApplication, QMainWindow 
 from PyQt6.uic import loadUi
 from memory.model.Tablero import Tablero
-from memory.model.Carta import Carta
-import time
 
 class Main_screen(QMainWindow):
     def __init__(self):

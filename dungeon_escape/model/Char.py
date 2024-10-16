@@ -30,7 +30,7 @@ class Character:
         self.speed = 10
     
     def dwarf_char(self):
-        self.hp = 150
+        self.hp = 120
         self.specie = "Enano"
         self.speed = 12
     
@@ -39,25 +39,28 @@ class Character:
         self.specie = "Elfo"
         self.speed = 8
     
-
     def trap(self):
     
         prob = random.random()
 
-        if prob < 0.6:
-            print("Has caido en una trampa!")
+        if prob < 0.4:
+            print("\033[1m""Has caido en una trampa!""\033[0m")
             self.hp -= 30
         else:
-            print("Un monstruo te ha encontrado!")
+            print("\033[1m""Un monstruo te ha encontrado!""\033[0m")
+            print("w - atacar, d - huir")
             choice = input("Que quieres hacer? ")
-            #obj = random.random()
-            if choice == "Atacar":
+            if choice == "w":
                 attack = random.random()
                 if attack < 0.3:
                     print("Has derrotado al monstruo")
                 elif 0.3 <= attack and attack < 0.7:
                     print("Combates con el monstruo")
-            if choice == "Huir":
+                    self.hp -= 20
+                else:
+                    print("El monstruo te derrota claramente")
+                    self.hp -= 50
+            if choice == "d":
                 flee = random.random()
                 if flee < 0.4:
                     print("Has escapado del monstruo")
@@ -73,20 +76,39 @@ class Character:
         prob = random.random()
 
         if prob < 0.8:
-            print("Avanzas a la siguiente sala.")
+            print("\033[1m""Avanzas a la siguiente sala.""\033[0m")
         else:
-            print("Has encontrado un objeto!")
             obj = random.random()
-            if obj < 0.8:
+            if obj < 0.7:
                 self.inventory.append("Potion")
+                print("\b Has encontrado una poción!")
             else:
                 self.inventory.append("Sword")
+                print("\b Has encontrado una espada!")
     
     def action(self):
+        print("\033[1m""\n d - derecha, w- recto, a - izquierda, p - poción""\033[0m")
         direction = input("Hacia donde quieres ir? ")
-        if direction != "":
-            prob = random.random()
-            if prob < 0.5:
-                self.advance()
+        while direction != "":
+            if direction == "p":
+                if "Potion" in self.inventory:
+                    self.hp += 50
+                    self.inventory.remove("Potion")
+                    print("\b Te has curado")
+                    direction = ""
+                else:
+                    print("No tienes pociones. ")
+                    direction = input("\033[1m""Hacia donde quieres ir? ""\033[0m")
+            elif direction == "w" or direction == "a" or direction == "d" and direction != "p":
+                prob = random.random()
+                if prob < 0.7:
+                    self.advance()
+                else:
+                    self.trap()
+        
+                self.speed -= 1
+                direction = ""
             else:
-                self.trap()
+                print("Te has chocado contra una pared, eso no era una dirección..")
+                self.hp -= 10
+                direction = ""
