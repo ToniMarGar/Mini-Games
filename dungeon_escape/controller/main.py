@@ -1,23 +1,29 @@
-import random
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+from dungeon_escape.model.Char import Character
 
 def main():
     print("Empieza la partida")
     create_player()
 
-    def create_player():
-        
-        print("1 - Humano, 2 - Enano, 3 - Elfo")
+def create_player():
+    new_player = ""    
+    name = input("Dale nombre a tu personaje: ")
+    print("1 - Humano, 2 - Enano, 3 - Elfo")
+    while new_player == "":
         option = input("Con que especie quieres jugar? ")
-        match option:
-            case 1:
-                player = Character(1)    
-            case 2:
-                player = Character(2)        
-            case 3:
-                player = Character(3)  
-
-        name = input("Dale nombre a tu personaje")
-
+        if option == "1":
+            new_player = Character(name,int(option)) 
+        elif option == "2":
+            new_player = Character(name,int(option)) 
+        elif option == "3":
+            new_player = Character(name,int(option)) 
+        else:
+            print("This is not a character, please choose one from the list.")
+ 
+         
+    print(f"Name: {new_player.name} Stats: {new_player.hp} Specie: {new_player.specie}")
     # crear personaje alomejor si da tiempo y si nos apetece y si se alinean los astros.
     # empieza partida
     # inventario a 0, vida a 100
@@ -31,4 +37,4 @@ def main():
                 # trampa - 20 hp,
             # si monstruo, daño a no ser que espada
 
-
+main()
